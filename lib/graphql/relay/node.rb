@@ -25,7 +25,7 @@ module GraphQL
 
       def self.plural_field(**kwargs, &block)
         field = GraphQL::Field.define do
-          type(!types[GraphQL::Relay::Node.interface])
+          type(!types[!GraphQL::Relay::Node.interface])
           description("Fetches a list of objects given a list of IDs.")
           argument(:ids, !types[!types.ID], "IDs of the objects.")
           resolve(GraphQL::Relay::Node::FindNodes)
